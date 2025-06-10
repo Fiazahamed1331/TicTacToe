@@ -1,85 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rise of the Shadowborn</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        .user {
-            width: 100%;
-            max-width: 80px;
-        }
-
-        .xo {
-            width: 100%;
-            max-width: 80px;
-        }
-
-        .sub {
-            width: 33%;
-            max-width: 100px;
-            padding: 5px;
-            vertical-align: top;
-        }
-
-        .container {
-            display: flex;
-            gap: 2%;
-            flex-wrap: wrap;
-        }
-
-        .item:nth-child(1),
-        .item:nth-child(2),
-        .item:nth-child(3),
-        .item:nth-child(4),
-        .item:nth-child(5),
-        .item:nth-child(6),
-        .item:nth-child(7),
-        .item:nth-child(8),
-        .item:nth-child(9) {
-            width: 32%;
-            height: 32%;
-        }
-    </style>
-</head>
-
-<body class="bg-dark text-white">
-
-    <div class="container mt-3 text-center">
-        <h1>Rise of the Shadowborn</h1>
-
-        <div class="row align-items-center">
-            <div class="col-12 col-md-3 text-center">
-                <img src="/user1.png" class="user" draggable="false">
-                <h4>{{players.player1}}</h4>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="container">
-
-                    <div class="sub" *ngFor="let box of pic; index as i" (click)="makeMove(i)" draggable="false">
-                        <img *ngIf="box === 'X'" class="xo" src="/x1.png" alt="X">
-                        <img *ngIf="box === 'O'" class="xo" src="/o1.png" alt="O">
-                    </div>
-
+<div class="container mt-3">
+    <h1 class="text-white text-center">Rise of the Shadowborn</h1>
+    <div class="row text-center">
+        <div class="col-3">
+            <img src="/user1.png" class="user" draggable="false">
+            <h4 class="text-white">{{players.player1}}</h4>
+        </div>
+        <div class="col-6">
+            <div class="d-flex flex-wrap mx-5">
+                <div class="sub " *ngFor="let box of pic; index as i" (click)="makeMove(i)" draggable="false">
+                    <img *ngIf="box === 'X'" class="xo" src="/x1.png" alt="X" />
+                    <img *ngIf="box === 'O'" class="xo" src="/o1.png" alt="O" />
                 </div>
             </div>
-
-            <div class="col-12 col-md-3 text-center">
-                <img src="/user2.png" class="user" draggable="false">
-                <h4>{{players.player2}}</h4>
-            </div>
         </div>
-
-        <div class="mt-4">
-            <h3 *ngIf="win">{{ win }} wins!</h3>
-            <h3 *ngIf="win && draw">It's a draw!</h3>
-            <button class="btn btn-success w-100 mt-2" (click)="reset()">Play Again</button>
+        <div class="col-3">
+            <img src="/user2.png" class="user" draggable="false">
+            <h4 class="text-white">{{players.player2}}</h4>
         </div>
     </div>
-
-</body>
-
-</html>
+    <div class="text-center mt-4">
+        <h3 *ngIf="win" class="text-white">{{ win }} wins!</h3>
+        <h3 *ngIf="win && draw" class="text-white">It's a draw!</h3>
+        <button class="btn btn-success " (click)="reset()">Play Again</button>
+    </div>
+</div>
