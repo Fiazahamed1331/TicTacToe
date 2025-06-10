@@ -1,0 +1,18 @@
+    <div class="d-flex justify-content-center p-5 ">
+     <h1 class="text-white " draggable="false">Welcome To The World Of Dark Paradox  </h1>
+    </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <form #myform="ngForm" action="playground" method="get">
+              <div class="mb-3">
+                <input type="text" class="form-control" autocomplete="off" placeholder="Username 1" name="username1" [(ngModel)]="name1" required>
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" autocomplete="off" placeholder="Username 2" name="username2" [(ngModel)]="name2" required >
+              </div>
+             <button class="btn btn-outline-success w-100" (click)="myform.form.valid && warStarts()" >Let's start the fun</button>
+            </form>
+          </div>
+        </div>
+      </div>
