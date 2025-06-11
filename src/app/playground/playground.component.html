@@ -8,8 +8,8 @@
         <div class="col-6">
             <div class="d-flex flex-wrap mx-5">
                 <div class="sub " *ngFor="let box of pic; index as i" (click)="makeMove(i)" draggable="false">
-                    <img *ngIf="box === 'X'" class="xo" src="/x1.png" alt="X" />
-                    <img *ngIf="box === 'O'" class="xo" src="/o1.png" alt="O" />
+                    <img *ngIf="box === 'Angel'" class="xo" src="/Angel.png" alt="Angel" />
+                    <img *ngIf="box === 'Devil'" class="xo" src="/devil.png" alt="Devil" />
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
     </div>
     <div class="text-center mt-4">
         <h3 *ngIf="win" class="text-white">{{ win }} wins!</h3>
-        <h3 *ngIf="win && draw" class="text-white">It's a draw!</h3>
+        <h3 *ngIf="draw" class="text-white">It's a draw!</h3>
         <button class="btn btn-success " (click)="reset()">Play Again</button>
     </div>
 </div>

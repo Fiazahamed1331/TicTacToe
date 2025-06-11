@@ -16,9 +16,9 @@ export class PlaygroundComponent {
     this.players = Ton?.extras?.state?.['message'];
   }
   pic: string[] = Array(9).fill('');
-  player: string = 'X';
+  player: string = 'Angel';
   win: string | null = null;
-  draw: boolean = false
+  draw: boolean = false 
   players:any={};
 
   makeMove(index: number): void {
@@ -27,7 +27,7 @@ export class PlaygroundComponent {
       this.winner();
 
       if (!this.win) {
-        this.player = this.player === 'X' ? 'O' : 'X';
+        this.player = this.player === 'Angel' ? 'Devil' : 'Angel';
       }
 
     }
@@ -58,7 +58,7 @@ export class PlaygroundComponent {
 
   reset(): void {
     this.pic = Array(9).fill('');
-    this.player = 'X';
+    this.player = 'Angel';
     this.win = null;
     this.draw = false;
   }
