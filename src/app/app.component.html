@@ -1,12 +1,12 @@
-
-    <div *ngIf="!o.url.includes('home')  && !o.url.includes('playground') && !o.url.includes('XO')">
-        <div  class="d-flex align-self-center">
-        <div class="d-flex justify-content-center align-self-center">
-            <img  src="/brandlogo.png" alt="" draggable="false">
-        </div>
-       <div class=" ">
-            <a href="home" class="btn btn-outline-secondary " draggable="false">Welcome to the game</a>
-        </div>
-        </div>
-    </div>
+<div
+  *ngIf="!o.url.includes('home') && !o.url.includes('playground') && !o.url.includes('XO')"
+  class="d-flex flex-column align-items-center justify-content-center vh-100"
+>
+  <div class="mb-4">
+    <img src="/brandlogo.png" alt="Brand Logo" draggable="false">
+  </div>
+  <div>
+    <a href="home" class="btn btn-outline-secondary" draggable="false">Welcome to the game</a>
+  </div>
+</div>
 <router-outlet />
