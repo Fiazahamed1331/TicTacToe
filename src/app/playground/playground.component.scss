@@ -1,32 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Uncial+Antiqua&display=swap');
+
+/* 🎮 Game Grid Styling */
+.grid-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(80px, 1fr)); /* flexible columns, min 80px */
+  grid-template-rows: repeat(3, minmax(80px, 1fr));    /* flexible rows */
+  gap: 1rem;                                          /* use rem for spacing */
+  justify-content: center;
+  margin-top: 1.5rem;
+  max-width: 400px; /* max width to prevent too wide on large screens */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 🟦 Each Cell */
 .sub {
-    background: linear-gradient(to right, rgb(60, 60, 61), rgb(0, 0, 0));
-    height: 120px;
-    width: 120px;
-    border-radius: 20px;
-    margin: 15px;
-
+  background: linear-gradient(to right, rgb(60, 60, 61), rgb(0, 0, 0));
+  border-radius: 1.25rem; /* 20px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  aspect-ratio: 1 / 1; /* maintain square shape */
+  width: 100%; /* fill grid cell */
+  max-width: 120px; /* max size */
 }
 
+.sub:hover {
+  transform: scale(1.05);
+}
+
+/* ❌⭕ Symbol Images */
 .xo {
-    height: 120px;
-    width: 120px;
-    border-radius: 20px;
+  width: 90%;
+  height: 90%;
+  border-radius: 1.25rem;
+  object-fit: contain;
+  pointer-events: none;
 }
 
-h1 {
-    font-family: "Uncial Antiqua", system-ui;
-    font-weight: 400;
-    font-style: normal;
-}
-
+/* 🎮 Player Avatars */
 .user {
-    height: 100px;
-    width: 100px;
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 📝 Text Styling */
+h1 {
+  font-family: "Uncial Antiqua", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* responsive font size */
 }
 
 h4 {
-    font-family: "Uncial Antiqua", system-ui;
+  font-family: "Uncial Antiqua", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 0.625rem;
+  color: white;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* responsive font size */
+}
 
-    font-style: normal;
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .grid-board {
+    max-width: 300px;
+    gap: 0.75rem;
+  }
+
+  .sub {
+    max-width: 90px;
+  }
+
+  .user {
+    max-width: 70px;
+  }
 }

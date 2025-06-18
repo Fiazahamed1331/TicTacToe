@@ -1,26 +1,38 @@
 <div class="container mt-3">
-    <h1 class="text-white text-center">Rise of the Shadowborn</h1>
-    <div class="row text-center">
-        <div class="col-3">
-            <img src="/user1.png" class="user" draggable="false">
-            <h4 class="text-white">{{players.player1}}</h4>
-        </div>
-        <div class="col-6">
-            <div class="d-flex flex-wrap mx-5">
-                <div class="sub " *ngFor="let box of pic; index as i" (click)="makeMove(i)" draggable="false">
-                    <img *ngIf="box === 'X'" class="xo" src="/x1.png" alt="X" />
-                    <img *ngIf="box === 'O'" class="xo" src="/o1.png" alt="O" />
-                </div>
-            </div>
-        </div>
-        <div class="col-3">
-            <img src="/user2.png" class="user" draggable="false">
-            <h4 class="text-white">{{players.player2}}</h4>
-        </div>
+  <h1 class="text-white text-center">Rise of the Shadowborn</h1>
+  <div class="row text-center">
+    <!-- Player 1 -->
+    <div class="col-3">
+      <img src="/user1.png" class="user" draggable="false">
+      <h4 class="text-white">{{ players.player1 }}</h4>
     </div>
-    <div class="text-center mt-4">
-        <h3 *ngIf="win" class="text-white">{{ win }} wins!</h3>
-        <h3 *ngIf="win && draw" class="text-white">It's a draw!</h3>
-        <button class="btn btn-success " (click)="reset()">Play Again</button>
+
+    <!-- Game Board -->
+    <div class="col-6">
+      <div class="grid-board mx-auto">
+        <div
+          class="sub"
+          *ngFor="let box of pic; index as i"
+          (click)="makeMove(i)"
+          draggable="false"
+        >
+          <img *ngIf="box === 'Angel'" class="xo" src="/Angel.png" alt="Angel" />
+          <img *ngIf="box === 'Devil'" class="xo" src="/devil.png" alt="Devil" />
+        </div>
+      </div>
     </div>
+
+    <!-- Player 2 -->
+    <div class="col-3">
+      <img src="/user2.png" class="user" draggable="false">
+      <h4 class="text-white">{{ players.player2 }}</h4>
+    </div>
+  </div>
+
+  <!-- Game Status -->
+  <div class="text-center mt-4">
+    <h3 *ngIf="win" class="text-white">{{ win }} wins!</h3>
+    <h3 *ngIf="draw" class="text-white">It's a draw!</h3>
+    <button class="btn btn-success" (click)="reset()">Play Again</button>
+  </div>
 </div>
